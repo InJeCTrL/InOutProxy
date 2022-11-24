@@ -34,4 +34,4 @@ jobs:
         title: latest
         prerelease: false
         files: |
-          .proxyapp/*
+          ./proxyapp/*
