@@ -25,7 +25,9 @@ jobs:
     - name: Build & Publish
       run: |
         dotnet build --configuration Release --no-restore
-        dotnet publish -c Release -o ./proxyapp
+        dotnet publish -c Release -o ./inout
+    - name: Zip
+      run: tar -czvf inout.tar.gz ./inout/*
     - name: Create GitHub release
       uses: marvinpinto/action-automatic-releases@latest
       with:
@@ -34,4 +36,4 @@ jobs:
         title: latest
         prerelease: false
         files: |
-          ./proxyapp/*
+          ./inout.tar.gz
